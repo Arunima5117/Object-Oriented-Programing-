@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Book{
+    private:
+    string title;
+    string author;
+    string ISBN;
+    double prize;
+    public:
+    void recordBook()
+{
+    cout<<"Enter Book Title:";
+    getline(cin,title);
+    cout<<"Enter Author:";
+    getline(cin,author);
+    cout<<"Enter ISBN:";
+    getline(cin,ISBN);
+    cout<<"Enter Book prize:";
+    cin>>prize;
+}
+void displayBook()
+{
+    cout<<"\n ====BOOK INFORMATION===="<<endl;
+    cout<<"TITLE:"<<title<<endl;
+    cout<<"AUTHOR"<<author<<endl;
+    cout<<"ISBN:"<<ISBN<<endl;
+    cout<<"PRIZE:"<<prize<<endl;
+}
+};
+int main()
+{
+    Book book;
+    cout<<"DIGITAL BOOK INVENTORY SYSTEM"<<endl;
+    book.recordBook();
+    book.displayBook();
+    return 0;
+}
