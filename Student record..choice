@@ -1,0 +1,104 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class Student{
+    private:
+    int RollNo;
+    string Name;
+    string Course;
+    int Admission_Year;
+    public:
+    void inputDetails()
+    {
+        cout<<"Enter Roll Number:";
+        cin>>RollNo;
+        cin.ignore();
+        cout<<"Enter Name:";
+        getline(cin,Name);
+        cout<<"Enter Course:";
+        getline(cin,Course);
+        cout<<"Enter Admission Year:";
+        cin>>Admission_Year;
+        cout<<"--------------------------\n";
+    }
+    void displayDetails() const{
+        cout<<"Roll Number:"<<RollNo<<"\n";
+        cout<<"Name:"<<Name<<"\n";
+        cout<<"Course:"<<Course<<"\n";
+        cout<<"Admission Year:"<<Admission_Year<<"\n";
+        cout<<"--------------------\n";
+    }
+    int getRollNo() const{
+        return RollNo;
+    }
+    };
+int main(){
+    const int MAX_STUDENTS=100;
+    Student database[MAX_STUDENTS];
+    int CurrentCount=0;
+    int choice;
+    cout<<"======College Record Digitization System======\n";
+    do{
+        cout<<"\n1.Add New Student Record\n";
+        cout<<"2.Display All Student Records\n";
+        cout<<"3.Search Student by Roll Number\n";
+        cout<<"4.Exit\n";
+        cout<<"Enter your Choice:";
+        cin>>choice;
+        cout<<"\n";
+        switch(choice){
+            case 1:
+            if(CurrentCount<MAX_STUDENTS){
+                cout<<"----Enter Details of Student----"<<CurrentCount+1<<"---\n";
+                database[CurrentCount].inputDetails();
+                CurrentCount++;
+                cout<<"Record Saved Successfully!\n";
+            }
+                else{
+                cout<<"Databse full cannot add more records\n";
+                }
+                break;
+                case 2:
+                    cout<<"----Total Student Records----\n";
+                       if(CurrentCount==0){
+                         cout<<"No student record available\n;";
+                }
+                else{
+                    cout<<"Total Student Record\n";
+                }
+                        for(int i=0;i<CurrentCount;i++){
+                        database[i].displayDetails();
+                        }
+                break;
+            case 3:{
+                if(CurrentCount==0){
+                    cout<<"No Student Record available to search\n";
+                    break;
+                }
+                int searchRollNo;
+                bool found=false;
+                cout<<"Enter Roll Number to Search:";
+                cin>>searchRollNo;
+                cout<<"\n";
+                for(int i=0;i<CurrentCount;i++){
+                    if(database[i].getRollNo()==searchRollNo){
+                        cout<<"Record Found!\n";
+                        database[i].displayDetails();
+                        found=true;
+                        break;
+                    }
+                }
+                if(found==false){
+                    cout<<"Student with Roll Number"<<searchRollNo<<"not found\n";
+                }
+                break;
+            }
+            case 4:
+            cout<<"EXITING THE SYSTEM. GOODBYE!\n";
+            break;
+            default:
+            cout<<"INVALID CHOICE!PLEASE CHOOSE BETWEEN 1 AND 4.\n";
+        }
+    } while(choice!=4);
+    return 0;
+             }
