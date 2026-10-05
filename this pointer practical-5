@@ -1,0 +1,28 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class Student{
+int rollno;
+string name;
+string course;
+public:
+Student(int rollno,string name, string course)
+{
+this->rollno=rollno;
+this->name=name;
+this->course=course;
+}
+void displayDetails()
+{
+cout<<"Student details"<<endl;
+cout<<"Roll Number:"<<rollno<<endl;
+cout<<"Name:"<<name<<endl;
+cout<<"Course:"<<course<<endl;
+}
+};
+int main()
+{
+Student s1(101,"Arunima","Computer Science");
+s1.displayDetails();
+return 0;
+}
