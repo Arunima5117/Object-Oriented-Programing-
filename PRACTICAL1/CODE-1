@@ -23,7 +23,7 @@ void displayBook()
 {
     cout<<"\n ====BOOK INFORMATION===="<<endl;
     cout<<"TITLE:"<<title<<endl;
-    cout<<"AUTHOR"<<author<<endl;
+    cout<<"AUTHOR:"<<author<<endl;
     cout<<"ISBN:"<<ISBN<<endl;
     cout<<"PRIZE:"<<prize<<endl;
 }
